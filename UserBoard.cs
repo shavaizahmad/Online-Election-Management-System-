@@ -61,7 +61,7 @@ namespace Election_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Logout Successfully", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            MessageBox.Show("Logout Successfully", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
             Form1 login = new Form1();
             login.FormClosed += (s, args) => this.Close();
             login.Show();
