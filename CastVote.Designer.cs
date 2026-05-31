@@ -99,7 +99,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Navy;
-            label2.Location = new Point(435, 77);
+            label2.Location = new Point(475, 81);
             label2.Name = "label2";
             label2.Size = new Size(160, 45);
             label2.TabIndex = 4;
