@@ -10,12 +10,13 @@ using System.Text;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Election_Management_System
 {
     public partial class magangeVoter : Form
     {
-    
+
         public magangeVoter()
         {
             InitializeComponent();
@@ -104,7 +105,7 @@ namespace Election_Management_System
         {
             using (SQLiteConnection conn = DBConnection.GetConnection())
             {
-               
+
                 if (dataGridView2.SelectedRows.Count > 0)
                 {
                     int id = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["Id"].Value);
@@ -117,7 +118,7 @@ namespace Election_Management_System
                     cmd.Parameters.AddWithValue("@Id", id);
                     cmd.ExecuteNonQuery();
 
-                   
+
 
                     MessageBox.Show("Voter Deleted");
 
@@ -128,6 +129,40 @@ namespace Election_Management_System
                 {
                     MessageBox.Show("Select Row First");
                 }
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            using (SQLiteConnection conn = DBConnection.GetConnection())
+            {
+               
+                if (e.RowIndex < 0) return;
+
+                // Selected row se data uthao
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+
+                int id = Convert.ToInt32(row.Cells["id"].Value);
+                string username = row.Cells["username"].Value?.ToString();
+                string cnic = row.Cells["cnic"].Value?.ToString();
+                string contact = row.Cells["Contact"].Value?.ToString();
+                string password = row.Cells["Password"].Value?.ToString();
+                string age = row.Cells["Age"].Value?.ToString();
+                string gender = row.Cells["Gender"].Value?.ToString();
+
+
+                EditVoter editForm = new EditVoter(id, username, cnic, contact, password, age, gender);
+
+
+                editForm.FormClosed += (s, args) => LoadVoter();
+
+                editForm.ShowDialog();
             }
         }
     }

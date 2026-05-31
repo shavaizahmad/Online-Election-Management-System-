@@ -130,8 +130,9 @@ namespace Election_Management_System
 
                     // 🔥 HIDE / DISABLE UI
                     btnSave.Enabled = false;
-                    btnSave.Text = "Already Voted";
+                    btnSave.Text = "Voted";
                     dataGridView1.Enabled = false;
+                    lblStatus.Text = "Thanks for Voting";
                 }
                 catch (Exception ex)
                 {
@@ -140,6 +141,11 @@ namespace Election_Management_System
 
                 }
             }
+        }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

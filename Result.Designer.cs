@@ -45,12 +45,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.PaleTurquoise;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(426, 194);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(576, 293);
+            dataGridView1.Size = new Size(547, 293);
             dataGridView1.TabIndex = 0;
             // 
             // label2
@@ -138,7 +139,7 @@
             // lblWinner
             // 
             lblWinner.AutoSize = true;
-            lblWinner.BackColor = Color.Fuchsia;
+            lblWinner.BackColor = Color.Crimson;
             lblWinner.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWinner.ForeColor = Color.White;
             lblWinner.Location = new Point(426, 537);
@@ -153,7 +154,7 @@
             button1.BackColor = Color.Crimson;
             button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(872, 537);
+            button1.Location = new Point(857, 537);
             button1.Name = "button1";
             button1.Size = new Size(116, 54);
             button1.TabIndex = 32;

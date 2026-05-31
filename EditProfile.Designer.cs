@@ -153,7 +153,7 @@
             button1.BackColor = Color.MediumBlue;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(155, 499);
+            button1.Location = new Point(145, 472);
             button1.Name = "button1";
             button1.Size = new Size(129, 45);
             button1.TabIndex = 7;
@@ -172,6 +172,7 @@
             button2.TabIndex = 8;
             button2.Text = "Back";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // EditProfile
             // 

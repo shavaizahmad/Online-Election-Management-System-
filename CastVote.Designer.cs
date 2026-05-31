@@ -150,6 +150,7 @@
             lblStatus.Size = new Size(160, 32);
             lblStatus.TabIndex = 8;
             lblStatus.Text = "Status :         ";
+            lblStatus.Click += lblStatus_Click;
             // 
             // CastVote
             // 

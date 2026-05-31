@@ -53,13 +53,14 @@ namespace Election_Management_System
 
             LoadCandidates();
         }
-    
 
-            void LoadCandidates()
+
+        void LoadCandidates()
+        {
+            using (SQLiteConnection conn = DBConnection.GetConnection())
             {
-            using (SQLiteConnection conn = DBConnection.GetConnection()) { 
                 conn.Open();
-            string query = "SELECT * FROM candidate";
+                string query = "SELECT * FROM candidate";
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -161,9 +162,45 @@ namespace Election_Management_System
             int total = dataGridView1.Rows.Cast<DataGridViewRow>().Count(row => !row.IsNewRow);
             lblStatus.Text = "Total Candidates : " + total;
         }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+       
+            }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            using (SQLiteConnection conn = DBConnection.GetConnection())
+            {
+                // Header row double click ignore karo
+                if (e.RowIndex < 0) return;
+
+                // Selected row se data uthao
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                int id = Convert.ToInt32(row.Cells["id"].Value);
+                string name = row.Cells["name"].Value?.ToString();
+                string gender = row.Cells["gender"].Value?.ToString();
+                string age = row.Cells["age"].Value?.ToString();
+                string seat = row.Cells["seat"].Value?.ToString();
+                string symbol = row.Cells["symbol"].Value?.ToString();
+                string party = row.Cells["party"].Value?.ToString();
+
+              
+                EditCandidate editForm = new EditCandidate(id, name, gender, age, seat, symbol, party);
+
+
+                editForm.FormClosed += (s, args) => LoadCandidates();
+
+                editForm.ShowDialog();
+            }
+
+                
+              
+            }
+        }
     }
-}
-            
+          
         
     
 
